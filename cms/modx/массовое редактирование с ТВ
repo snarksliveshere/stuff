@@ -1,0 +1,13 @@
+<?php
+$resources = $modx->getCollection('modResource',array('parent' =>11));
+foreach ($resources as $res) {
+ $thumb = $res->getTVValue('thumb');
+ //echo $thumb."\n";
+ $newThumb = str_ireplace(' ','-', $thumb);
+ $newThumb = str_ireplace('JPG','jpg', $newThumb);
+ echo $newThumb."\n";
+ // $res->setTVValue('thumb', $newThumb);
+  //$res->save();
+  //$aa = $res->getTVValue('thumb');
+  //echo $aa."\n";
+}

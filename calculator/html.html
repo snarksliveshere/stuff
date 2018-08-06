@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="my.js"></script>
+<style type="text/css">
+    .error-h, .error-w {
+        display: none;
+    }
+
+    input {
+        outline: none;
+    }
+
+    .number {
+        display: inline-block;
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .number input {
+        width: 50px;
+        height: 37px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .plus, .minus {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #000;
+        font-weight: bold;
+        font-size: 20px;
+        position: absolute;
+        text-align: center;
+        right: -20px;
+    }
+
+    .plus {
+        top: 0;
+    }
+
+    .minus {
+        bottom: 0;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<!--  Вводится клиентом -->
+<form id="client-in" class="step">
+    <div class="step1"><strong>Задайте размер</strong></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-md-6 margin-bottom-10">
+                <div class="input-group">
+                    <span class="input-group-addon">выберите категорию</span>
+                    <select name="category" id="cat" style="width:100px;">
+                        <option value="1" selected>1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6 margin-bottom-10">
+                <div class="input-group">
+                    <span class="input-group-addon">Ширина</span>
+                    <input id="width" name="txtW" type="text" maxlength="4" value="400" class="WValue form-control"/>
+                    <span class="input-group-addon">мм</span>
+                    <span class="error-w">минимум  400мм максимум 1500мм</span>
+                </div>
+            </div>
+            <div class="col-md-6 margin-bottom-10">
+                <div class="input-group">
+                    <span class="input-group-addon">Высота</span>
+                    <input id="height" name="txtH" type="text" maxlength="4" value="500" class="HValue form-control">
+                    <span class="input-group-addon">мм</span>
+                    <span class="error-h">минимум  500мм максимум 1800мм</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- конец ввода клиентом -->
+<!-- скрытое поле -->
+<form id="real-cost">
+    <input id="hhide" class="select-value" value="500" type="hidden">
+    <input id="whide" class="select-value" value="400" type="hidden">
+    <input id="cost1" value="1200" type="hidden" data-prc=""> <input id="client-height" value="500" type="hidden"/>
+    <input id="client-width" value="400" type="hidden"/> <input id="category" value="" type="hidden">
+    <input id="start-cost" value="1" type="hidden"> <input type="text" value="" id="cost"/>
+</form>
+<div class="number">
+    <input type="text" id="number-input" value="1"/>
+    <div class="plus">+</div>
+    <div class="minus">-</div>
+</div>
+<p> update: при загрузке страницы сразу выдается минимальная цена + если превышено значение ширины/высоты вылезает
+    ошибка. пока что статичная </p>
+<p>update : добавлена возможность увеличивать, уменьшать количество, как кнопками, так и вбивать значения руками </p>
+</body>
+</html>
